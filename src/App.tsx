@@ -6,7 +6,7 @@ import Login from './page/Login';
 import Home from './page/Home';
 import { useContextoGeral } from './componentes/ContextoGeral';
 
-const RotaProtegida = ({ children }: { children: JSX.Element }) => {
+const RotaProtegida = ({ children }: { children: React.ReactNode }) => {
   const { usuario } = useContextoGeral();
   if (!usuario) {
     return <Navigate to="/login" replace />;
