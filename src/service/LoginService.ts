@@ -1,13 +1,17 @@
+
 import { Usuario } from "../types";
 import api from "./api";
 
-export const loginService = {
-    logar: async (login: string, senha: string): Promise<Usuario> => {
-        const response = await api.post('/login', { login, senha });
-        return response.data;
+// Serviço responsável pelas operações de autenticação
+export const servicoLogin = {
+    // Realiza o login do usuário
+    entrar: async (login: string, senha: string): Promise<Usuario> => {
+        const resposta = await api.post('/login', { login, senha });
+        return resposta.data;
     },
 
-    logout: async (): Promise<void> => {
-        // Implemente a lógica de logout, se necessário
+    // Realiza o logout do usuário
+    sair: async (): Promise<void> => {
+        // Implementar lógica de logout quando necessário
     },
 };
