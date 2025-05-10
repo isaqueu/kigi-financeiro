@@ -29,13 +29,18 @@ export const Login: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4 py-12 sm:px-6 lg:px-8">
-      <div className="w-full max-w-md space-y-8">
-        <div className="bg-white px-6 py-8 shadow-xl rounded-lg">
-          <h2 className="text-center text-3xl font-bold tracking-tight text-gray-900">
-            Login
-          </h2>
-          <form onSubmit={handleSubmit} className="mt-8 space-y-6">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-kigi-primary to-kigi-secondary">
+      <div className="w-full max-w-md space-y-8 p-8">
+        <div className="bg-white/95 backdrop-blur-sm px-8 py-12 shadow-2xl rounded-2xl">
+          <div className="text-center mb-8">
+            <h1 className="text-4xl font-bold text-kigi-primary mb-2">
+              KIGI Finanças
+            </h1>
+            <p className="text-gray-600">
+              Gestão financeira inteligente
+            </p>
+          </div>
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-4">
               <div>
                 <label htmlFor="login" className="block text-sm font-medium text-gray-700">
@@ -47,7 +52,7 @@ export const Login: React.FC = () => {
                   required
                   value={login}
                   onChange={(e) => setLogin(e.target.value)}
-                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-3 shadow-sm focus:border-kigi-accent focus:ring-1 focus:ring-kigi-accent transition-colors"
                   placeholder="Digite seu login"
                 />
               </div>
@@ -61,14 +66,14 @@ export const Login: React.FC = () => {
                   required
                   value={senha}
                   onChange={(e) => setSenha(e.target.value)}
-                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-3 shadow-sm focus:border-kigi-accent focus:ring-1 focus:ring-kigi-accent transition-colors"
                   placeholder="Digite sua senha"
                 />
               </div>
             </div>
 
             {erro && (
-              <div className="rounded-md bg-red-50 p-4">
+              <div className="rounded-lg bg-red-50 p-4">
                 <div className="flex">
                   <div className="flex-shrink-0">
                     <svg className="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
@@ -84,7 +89,7 @@ export const Login: React.FC = () => {
 
             <Button
               type="submit"
-              className="w-full"
+              className="w-full bg-kigi-primary hover:bg-kigi-secondary text-white py-3 rounded-lg transition-colors"
             >
               Entrar
             </Button>

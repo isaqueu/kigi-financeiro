@@ -21,8 +21,13 @@ module.exports = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "#2563eb",
+          foreground: "#ffffff",
+        },
+        kigi: {
+          primary: "#2563eb",
+          secondary: "#1e40af",
+          accent: "#60a5fa"
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
