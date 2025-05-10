@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { useContextoGeral } from '../componentes/ContextoGeral';
+import { useContextoGeral } from '../componentes/contexto/ContextoGeral';
 
 const Home: React.FC = () => {
   const { usuario } = useContextoGeral();

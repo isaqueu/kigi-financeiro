@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { ContextoGeralProvider } from './componentes/contexto/ContextoGeral';
 import Login from './page/Login';
 import Home from './page/Home';
-import { useContextoGeral } from './componentes/ContextoGeral';
+import { useContextoGeral } from './componentes/contexto/ContextoGeral';
 
 function App() {
   return (
