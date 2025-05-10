@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { Button } from "../components/ui/button";
 import { useNavigate } from 'react-router-dom';
 import { servicoLogin } from '../service/LoginService';
 import { useContextoGeral } from '../componentes/ContextoGeral';
@@ -81,12 +82,12 @@ export const Login: React.FC = () => {
               </div>
             )}
 
-            <button
+            <Button
               type="submit"
-              className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              className="w-full"
             >
               Entrar
-            </button>
+            </Button>
           </form>
         </div>
       </div>
