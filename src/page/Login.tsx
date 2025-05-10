@@ -1,35 +1,36 @@
-
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { Button } from "../componentes/ui/button";
-import { useNavigate } from 'react-router-dom';
-import { servicoLogin } from '../service/LoginService';
-import { useContextoGeral } from '../componentes/contexto/ContextoGeral';
-import { LoginRequest, UsuarioLogado } from '@/types';
+import { useNavigate } from "react-router-dom";
+import { servicoLogin } from "../service/LoginService";
+import { useContextoGeral } from "../componentes/contexto/ContextoGeral";
+import { LoginRequest, UsuarioLogado } from "@/types";
 
 export const Login: React.FC = () => {
-  const [login, setLogin] = useState('');
-  const [senha, setSenha] = useState('');
-  const [erro, setErro] = useState('');
+  const [login, setLogin] = useState("");
+  const [senha, setSenha] = useState("");
+  const [erro, setErro] = useState("");
   const { setUsuarioLogado, setCarregando } = useContextoGeral();
   const navigate = useNavigate();
-  
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setErro('');
+    setErro("");
     setCarregando(true);
 
+    console.log("Login:", login);
+
     const dados: LoginRequest = {
-        usuarioLogin: login,
-        senhaHash: senha,
-      nomeAplicacao: 'KIGI Finanças',
-    }
+      usuarioLogin: login,
+      senhaHash: senha,
+      nomeAplicacao: "KIGI Finanças",
+    };
 
     try {
       const usuario = await servicoLogin.entrar(dados);
       setUsuarioLogado(usuario);
-      navigate('/home');
+      navigate("/home");
     } catch (error: any) {
-      setErro(error.response?.data?.message || 'Usuário ou senha inválidos');
+      setErro(error.response?.data?.message || "Usuário ou senha inválidos");
     } finally {
       setCarregando(false);
     }
@@ -43,14 +44,15 @@ export const Login: React.FC = () => {
             <h1 className="text-4xl font-bold text-kigi-primary mb-2">
               KIGI Finanças
             </h1>
-            <p className="text-gray-600">
-              Gestão financeira inteligente
-            </p>
+            <p className="text-gray-600">Gestão financeira inteligente</p>
           </div>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-4">
               <div>
-                <label htmlFor="login" className="block text-sm font-medium text-gray-700">
+                <label
+                  htmlFor="login"
+                  className="block text-sm font-medium text-gray-700"
+                >
                   Login
                 </label>
                 <input
@@ -64,7 +66,10 @@ export const Login: React.FC = () => {
                 />
               </div>
               <div>
-                <label htmlFor="senha" className="block text-sm font-medium text-gray-700">
+                <label
+                  htmlFor="senha"
+                  className="block text-sm font-medium text-gray-700"
+                >
                   Senha
                 </label>
                 <input
@@ -83,8 +88,16 @@ export const Login: React.FC = () => {
               <div className="rounded-lg bg-red-50 p-4">
                 <div className="flex">
                   <div className="flex-shrink-0">
-                    <svg className="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                    <svg
+                      className="h-5 w-5 text-red-400"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                   </div>
                   <div className="ml-3">
