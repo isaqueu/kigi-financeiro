@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { loginService } from '../service/LoginService';
 import { useContextoGeral } from '../componentes/ContextoGeral';
 
@@ -9,6 +10,8 @@ export const Login: React.FC = () => {
   const [erro, setErro] = useState('');
   const { setUsuario, setLoading } = useContextoGeral();
 
+  const navigate = useNavigate();
+  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErro('');
@@ -17,8 +20,9 @@ export const Login: React.FC = () => {
     try {
       const usuario = await loginService.logar(login, senha);
       setUsuario(usuario);
-    } catch (error) {
-      setErro('Usuário ou senha inválidos');
+      navigate('/home');
+    } catch (error: any) {
+      setErro(error.response?.data?.message || 'Usuário ou senha inválidos');
     } finally {
       setLoading(false);
     }
