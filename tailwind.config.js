@@ -25,9 +25,10 @@ module.exports = {
           foreground: "#ffffff",
         },
         kigi: {
-          primary: "#3b82f6",
-          secondary: "#2563eb",
-          accent: "#93c5fd"
+          primary: "#60a5fa",
+          secondary: "#3b82f6",
+          accent: "#93c5fd",
+          light: "#f0f6ff"
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",

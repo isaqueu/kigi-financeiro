@@ -31,7 +31,7 @@ export const Login: React.FC = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-kigi-primary to-kigi-secondary">
       <div className="w-full max-w-md space-y-8 p-8">
-        <div className="bg-white/95 backdrop-blur-sm px-8 py-12 shadow-2xl rounded-2xl">
+        <div className="bg-kigi-light/90 backdrop-blur-sm px-8 py-12 shadow-lg rounded-2xl">
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold text-kigi-primary mb-2">
               KIGI Finanças
