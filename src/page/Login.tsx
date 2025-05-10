@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Button } from "../components/ui/button";
 import { useNavigate } from 'react-router-dom';
 import { servicoLogin } from '../service/LoginService';
-import { useContextoGeral } from '../componentes/ContextoGeral';
+import { useContextoGeral } from '../componentes/contexto/ContextoGeral';
 
 export const Login: React.FC = () => {
   const [login, setLogin] = useState('');
