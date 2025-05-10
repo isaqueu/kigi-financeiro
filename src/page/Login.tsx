@@ -3,10 +3,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { servicoLogin } from '../service/LoginService';
 import { useContextoGeral } from '../componentes/ContextoGeral';
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Alert, AlertDescription } from "@/components/ui/alert";
 
 export const Login: React.FC = () => {
   const [login, setLogin] = useState('');
@@ -33,43 +29,44 @@ export const Login: React.FC = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
-      <Card className="w-full max-w-md">
-        <CardHeader>
-          <CardTitle className="text-2xl font-bold text-center">Login</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="space-y-2">
-              <Input
-                type="text"
-                placeholder="Login"
-                value={login}
-                onChange={(e) => setLogin(e.target.value)}
-                required
-              />
-            </div>
-            <div className="space-y-2">
-              <Input
-                type="password"
-                placeholder="Senha"
-                value={senha}
-                onChange={(e) => setSenha(e.target.value)}
-                required
-              />
-            </div>
+      <div className="w-full max-w-md bg-white rounded-lg shadow-md p-6">
+        <h2 className="text-2xl font-bold text-center mb-6">Login</h2>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <input
+              type="text"
+              placeholder="Login"
+              value={login}
+              onChange={(e) => setLogin(e.target.value)}
+              required
+              className="w-full p-2 border rounded"
+            />
+          </div>
+          <div>
+            <input
+              type="password"
+              placeholder="Senha"
+              value={senha}
+              onChange={(e) => setSenha(e.target.value)}
+              required
+              className="w-full p-2 border rounded"
+            />
+          </div>
 
-            {erro && (
-              <Alert variant="destructive">
-                <AlertDescription>{erro}</AlertDescription>
-              </Alert>
-            )}
+          {erro && (
+            <div className="bg-red-100 text-red-700 p-3 rounded">
+              {erro}
+            </div>
+          )}
 
-            <Button type="submit" className="w-full">
-              Entrar
-            </Button>
-          </form>
-        </CardContent>
-      </Card>
+          <button 
+            type="submit" 
+            className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+          >
+            Entrar
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
