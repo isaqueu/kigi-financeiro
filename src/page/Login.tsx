@@ -4,6 +4,7 @@ import { Button } from "../componentes/ui/button";
 import { useNavigate } from 'react-router-dom';
 import { servicoLogin } from '../service/LoginService';
 import { useContextoGeral } from '../componentes/contexto/ContextoGeral';
+import { LoginRequest, UsuarioLogado } from '@/types';
 
 export const Login: React.FC = () => {
   const [login, setLogin] = useState('');
@@ -17,8 +18,14 @@ export const Login: React.FC = () => {
     setErro('');
     setCarregando(true);
 
+    const dados: LoginRequest = {
+        usuarioLogin: login,
+        senhaHash: senha,
+      nomeAplicacao: 'KIGI Finanças',
+    }
+
     try {
-      const usuario = await servicoLogin.entrar(login, senha);
+      const usuario = await servicoLogin.entrar(dados);
       setUsuario(usuario);
       navigate('/home');
     } catch (error: any) {

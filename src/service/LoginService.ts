@@ -1,12 +1,11 @@
-
-import { Usuario } from "../types";
+import { LoginRequest, UsuarioLogado } from "../types";
 import api from "./api";
 
 // Serviço responsável pelas operações de autenticação
 export const servicoLogin = {
     // Realiza o login do usuário
-    entrar: async (login: string, senha: string): Promise<Usuario> => {
-        const resposta = await api.post('/login', { login, senha });
+    entrar: async (dados: LoginRequest): Promise<UsuarioLogado> => {
+        const resposta = await api.post("/login-controle-acesso", dados);
         return resposta.data;
     },
 

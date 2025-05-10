@@ -1,10 +1,9 @@
-
-import React, { createContext, useContext, useState } from 'react';
-import { Usuario } from '../../types';
+import React, { createContext, useContext, useState } from "react";
+import { UsuarioLogado } from "../../types";
 
 type ContextoGeralType = {
-  usuario: Usuario | null;
-  setUsuario: (usuario: Usuario | null) => void;
+  usuarioLogado: UsuarioLogado | null;
+  setUsuarioLogado: (usuarioLogado: UsuarioLogado | null) => void;
   carregando: boolean;
   setCarregando: (carregando: boolean) => void;
 };
@@ -15,17 +14,23 @@ type ContextoGeralProps = {
 
 const ContextoGeral = createContext<ContextoGeralType>({} as ContextoGeralType);
 
-export const ContextoGeralProvider: React.FC<ContextoGeralProps> = ({ children }) => {
-  const [usuario, setUsuario] = useState<Usuario | null>(null);
+export const ContextoGeralProvider: React.FC<ContextoGeralProps> = ({
+  children,
+}) => {
+  const [usuarioLogado, setUsuarioLogado] = useState<UsuarioLogado | null>(
+    null,
+  );
   const [carregando, setCarregando] = useState(false);
 
   return (
-    <ContextoGeral.Provider value={{
-      usuario,
-      setUsuario,
-      carregando,
-      setCarregando
-    }}>
+    <ContextoGeral.Provider
+      value={{
+        usuarioLogado,
+        setUsuarioLogado,
+        carregando,
+        setCarregando,
+      }}
+    >
       {children}
     </ContextoGeral.Provider>
   );
