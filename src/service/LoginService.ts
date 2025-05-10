@@ -7,7 +7,6 @@ export const servicoLogin = {
     entrar: async (dados: LoginRequest): Promise<UsuarioLogado> => {
         console.log("entrou no servicoLogin");
         const resposta = await api.post("/login-controle-acesso", dados);
-        console.log(resposta.data);
         return resposta.data;
     },
 

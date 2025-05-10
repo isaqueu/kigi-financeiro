@@ -21,3 +21,11 @@ export interface UsuarioLogado {
   niveis: Nivel[];
   papeis: Papel[];
 }
+
+export interface Produto {
+  idKigProduto?: number;
+  nmProduto: string;
+  qrcode?: string;
+  classificacao?: string;
+  unidade?: string;
+}

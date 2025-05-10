@@ -35,7 +35,11 @@ export const Login: React.FC = () => {
       }
     } catch (error: any) {
       console.error("Erro ao fazer login:", error);
-      setErro(error.response?.data?.message || "Erro ao tentar fazer login");
+      setErro(
+        error.response?.data?.erro ||
+          error.response?.data?.message ||
+          "Erro ao tentar fazer login",
+      );
     } finally {
       setCarregando(false);
     }
