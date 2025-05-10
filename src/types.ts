@@ -1,4 +1,3 @@
-
 // Interface que representa um usuário do sistema
 export interface Usuario {
   idUsuario: number;
@@ -6,6 +5,8 @@ export interface Usuario {
   login: string;
   nivel: Nivel;
   papeis: Papel[];
+  email: string;
+  perfil: string;
 }
 
 // Interface que representa o nível de acesso do usuário
