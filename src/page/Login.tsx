@@ -27,10 +27,15 @@ export const Login: React.FC = () => {
 
     try {
       const usuario = await servicoLogin.entrar(dados);
-      setUsuarioLogado(usuario);
-      navigate("/home");
+      if (usuario) {
+        setUsuarioLogado(usuario);
+        navigate("/home");
+      } else {
+        setErro("Usuário ou senha inválidos");
+      }
     } catch (error: any) {
-      setErro(error.response?.data?.message || "Usuário ou senha inválidos");
+      console.error("Erro ao fazer login:", error);
+      setErro(error.response?.data?.message || "Erro ao tentar fazer login");
     } finally {
       setCarregando(false);
     }
