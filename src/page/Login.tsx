@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Button } from "../components/ui/button";
+import { Button } from "@/components/ui/button";
 import { useNavigate } from 'react-router-dom';
 import { servicoLogin } from '../service/LoginService';
 import { useContextoGeral } from '../componentes/ContextoGeral';
