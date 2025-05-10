@@ -35,13 +35,13 @@ function App() {
 }
 
 const PrivateRoute = ({ children }: { children: React.ReactNode }) => {
-  const { usuario } = useContextoGeral();
-  return usuario ? children : <Navigate to="/login" replace />;
+  const { usuarioLogado } = useContextoGeral();
+  return usuarioLogado ? children : <Navigate to="/login" replace />;
 };
 
 const PublicRoute = ({ children }: { children: React.ReactNode }) => {
-  const { usuario } = useContextoGeral();
-  return usuario ? <Navigate to="/home" replace /> : children;
+  const { usuarioLogado } = useContextoGeral();
+  return usuarioLogado ? <Navigate to="/home" replace /> : children;
 };
 
 export default App;

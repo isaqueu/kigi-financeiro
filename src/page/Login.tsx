@@ -10,7 +10,7 @@ export const Login: React.FC = () => {
   const [login, setLogin] = useState('');
   const [senha, setSenha] = useState('');
   const [erro, setErro] = useState('');
-  const { setUsuario, setCarregando } = useContextoGeral();
+  const { setUsuarioLogado, setCarregando } = useContextoGeral();
   const navigate = useNavigate();
   
   const handleSubmit = async (e: React.FormEvent) => {
@@ -26,7 +26,7 @@ export const Login: React.FC = () => {
 
     try {
       const usuario = await servicoLogin.entrar(dados);
-      setUsuario(usuario);
+      setUsuarioLogado(usuario);
       navigate('/home');
     } catch (error: any) {
       setErro(error.response?.data?.message || 'Usuário ou senha inválidos');

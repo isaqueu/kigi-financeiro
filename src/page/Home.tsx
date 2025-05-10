@@ -3,7 +3,7 @@ import React from 'react';
 import { useContextoGeral } from '../componentes/contexto/ContextoGeral';
 
 const Home: React.FC = () => {
-  const { usuario } = useContextoGeral();
+  const { usuarioLogado } = useContextoGeral();
 
   return (
     <div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
@@ -13,7 +13,7 @@ const Home: React.FC = () => {
             <div className="divide-y divide-gray-200">
               <div className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
                 <h1 className="text-2xl font-bold text-gray-900">Bem-vindo!</h1>
-                <p>Olá, {usuario?.nome || 'Usuário'}!</p>
+                <p>Olá, {usuarioLogado?.nome || 'Usuário'}!</p>
               </div>
             </div>
           </div>
