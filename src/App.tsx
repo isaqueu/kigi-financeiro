@@ -6,40 +6,42 @@ import Login from './page/Login';
 import Home from './page/Home';
 import { useContextoGeral } from './componentes/ContextoGeral';
 
-const RotaProtegida = ({ children }: { children: React.ReactNode }) => {
-  const { usuario } = useContextoGeral();
-  if (!usuario) {
-    return <Navigate to="/login" replace />;
-  }
-  return children;
-};
-
-const AppRoutes = () => {
-  const { usuario } = useContextoGeral();
-  
-  return (
-    <Routes>
-      <Route path="/login" element={
-        usuario ? <Navigate to="/home" replace /> : <Login />
-      } />
-      <Route path="/home" element={
-        <RotaProtegida>
-          <Home />
-        </RotaProtegida>
-      } />
-      <Route path="/" element={<Navigate to="/login" replace />} />
-    </Routes>
-  );
-};
-
 function App() {
   return (
     <BrowserRouter>
       <ContextoGeralProvider>
-        <AppRoutes />
+        <Routes>
+          <Route 
+            path="/login" 
+            element={
+              <PublicRoute>
+                <Login />
+              </PublicRoute>
+            } 
+          />
+          <Route 
+            path="/home" 
+            element={
+              <PrivateRoute>
+                <Home />
+              </PrivateRoute>
+            } 
+          />
+          <Route path="/" element={<Navigate to="/login" replace />} />
+        </Routes>
       </ContextoGeralProvider>
     </BrowserRouter>
   );
 }
+
+const PrivateRoute = ({ children }: { children: React.ReactNode }) => {
+  const { usuario } = useContextoGeral();
+  return usuario ? children : <Navigate to="/login" replace />;
+};
+
+const PublicRoute = ({ children }: { children: React.ReactNode }) => {
+  const { usuario } = useContextoGeral();
+  return usuario ? <Navigate to="/home" replace /> : children;
+};
 
 export default App;
