@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ContextoGeralProvider } from "./componentes/contexto/ContextoGeral";
 import Login from "./page/Login";
 import Home from "./page/Home";
+import Produtos from "./page/Produtos";
 import { useContextoGeral } from "./componentes/contexto/ContextoGeral";
 
 function App() {
@@ -23,6 +24,14 @@ function App() {
             element={
               <PrivateRoute>
                 <Home />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/produtos"
+            element={
+              <PrivateRoute>
+                <Produtos />
               </PrivateRoute>
             }
           />
