@@ -1,26 +1,36 @@
 
 import React from 'react';
 import { useContextoGeral } from '../componentes/ContextoGeral';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 const Home: React.FC = () => {
   const { usuario } = useContextoGeral();
 
   return (
-    <div className="p-8">
-      <h1 className="text-2xl font-bold mb-4">Bem-vindo, {usuario?.nome}!</h1>
-      <div className="bg-white shadow rounded-lg p-6">
-        <h2 className="text-xl mb-4">Suas informações:</h2>
-        <div className="space-y-2">
-          <p><strong>ID:</strong> {usuario?.idUsuario}</p>
-          <p><strong>Login:</strong> {usuario?.login}</p>
-          <p><strong>Nível:</strong> {usuario?.nivel.descricao}</p>
-          <p><strong>Papéis:</strong></p>
-          <ul className="list-disc pl-5">
-            {usuario?.papeis.map(papel => (
-              <li key={papel.idPapel}>{papel.nome}</li>
-            ))}
-          </ul>
-        </div>
+    <div className="min-h-screen bg-gray-50 p-4 md:p-6 lg:p-8">
+      <div className="max-w-7xl mx-auto">
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-2xl md:text-3xl">
+              Bem-vindo, {usuario?.nome}!
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Informações do Usuário</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p>Email: {usuario?.email}</p>
+                  <p>Perfil: {usuario?.perfil}</p>
+                </CardContent>
+              </Card>
+              {/* Adicione mais cards conforme necessário */}
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );
