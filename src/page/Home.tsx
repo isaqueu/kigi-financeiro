@@ -8,9 +8,9 @@ const Home: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex h-screen bg-gradient-to-br from-kigi-light to-white">
+    <div className="flex h-screen bg-kigi-background">
       {/* Menu Lateral */}
-      <div className="w-64 bg-gradient-to-b from-kigi-primary to-kigi-secondary text-white">
+      <div className="w-64 bg-gradient-to-b from-kigi-darkBlue to-kigi-mediumBlue text-white">
         <div className="p-6 border-b border-white/10">
           <h2 className="text-2xl font-bold">KIGI Finanças</h2>
         </div>
