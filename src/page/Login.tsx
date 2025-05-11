@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Button } from "../componentes/ui/button";
 import { useNavigate } from "react-router-dom";
@@ -116,7 +115,7 @@ export const Login: React.FC = () => {
 
             <Button
               type="submit"
-              className="w-full bg-blue-500 hover:bg-blue-400 text-white py-3 rounded-lg transition-colors"
+              className="w-full bg-blue-600 hover:bg-blue-500 text-white py-3 rounded-lg transition-colors shadow-md"
             >
               Entrar
             </Button>
