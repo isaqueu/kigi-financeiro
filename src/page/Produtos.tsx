@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { servicoProduto } from "../service/ProdutoService";
 import { Produto } from "../types";
@@ -120,7 +119,7 @@ const Produtos: React.FC = () => {
                   type="text"
                   value={produtoAtual.nmProduto}
                   onChange={(e) => setProdutoAtual({ ...produtoAtual, nmProduto: e.target.value })}
-                  className="w-full px-3 py-2 bg-blue-50 border border-blue-300 text-blue-900 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-400"
+                  className="w-full px-3 py-2 bg-blue-50 border-2 border-blue-200 text-blue-900 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-400"
                   required
                 />
               </div>
@@ -132,7 +131,7 @@ const Produtos: React.FC = () => {
                   type="text"
                   value={produtoAtual.qrcode}
                   onChange={(e) => setProdutoAtual({ ...produtoAtual, qrcode: e.target.value })}
-                  className="w-full px-3 py-2 bg-blue-50 border border-blue-300 text-blue-900 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-400"
+                  className="w-full px-3 py-2 bg-blue-50 border-2 border-blue-200 text-blue-900 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-400"
                 />
               </div>
               <div>
@@ -143,7 +142,7 @@ const Produtos: React.FC = () => {
                   type="text"
                   value={produtoAtual.classificacao}
                   onChange={(e) => setProdutoAtual({ ...produtoAtual, classificacao: e.target.value })}
-                  className="w-full px-3 py-2 bg-blue-50 border border-blue-300 text-blue-900 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-400"
+                  className="w-full px-3 py-2 bg-blue-50 border-2 border-blue-200 text-blue-900 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-400"
                 />
               </div>
               <div>
@@ -154,7 +153,7 @@ const Produtos: React.FC = () => {
                   type="text"
                   value={produtoAtual.unidade}
                   onChange={(e) => setProdutoAtual({ ...produtoAtual, unidade: e.target.value })}
-                  className="w-full px-3 py-2 bg-blue-50 border border-blue-300 text-blue-900 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-400"
+                  className="w-full px-3 py-2 bg-blue-50 border-2 border-blue-200 text-blue-900 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-400"
                 />
               </div>
             </div>

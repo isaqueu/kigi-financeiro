@@ -67,7 +67,7 @@ export const Login: React.FC = () => {
                   required
                   value={login}
                   onChange={(e) => setLogin(e.target.value)}
-                  className="mt-1 block w-full rounded-lg bg-blue-100 border border-blue-300 px-4 py-3 text-blue-900 placeholder-blue-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
+                  className="mt-1 block w-full rounded-lg bg-blue-50 border-2 border-blue-200 px-4 py-3 text-blue-900 placeholder-blue-400 focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-colors"
                   placeholder="Digite seu login"
                 />
               </div>
@@ -84,7 +84,7 @@ export const Login: React.FC = () => {
                   required
                   value={senha}
                   onChange={(e) => setSenha(e.target.value)}
-                  className="mt-1 block w-full rounded-lg bg-blue-100 border border-blue-300 px-4 py-3 text-blue-900 placeholder-blue-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
+                  className="mt-1 block w-full rounded-lg bg-blue-50 border-2 border-blue-200 px-4 py-3 text-blue-900 placeholder-blue-400 focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-colors"
                   placeholder="Digite sua senha"
                 />
               </div>
