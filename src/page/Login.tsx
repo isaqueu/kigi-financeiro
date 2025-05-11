@@ -1,9 +1,10 @@
+
 import React, { useState } from "react";
 import { Button } from "../componentes/ui/button";
 import { useNavigate } from "react-router-dom";
 import { servicoLogin } from "../service/LoginService";
 import { useContextoGeral } from "../componentes/contexto/ContextoGeral";
-import { LoginRequest, UsuarioLogado } from "@/types";
+import { LoginRequest } from "@/types";
 
 export const Login: React.FC = () => {
   const [login, setLogin] = useState("");
@@ -16,8 +17,6 @@ export const Login: React.FC = () => {
     e.preventDefault();
     setErro("");
     setCarregando(true);
-
-    console.log("Login:", login);
 
     const dados: LoginRequest = {
       usuarioLogin: login,
@@ -34,11 +33,10 @@ export const Login: React.FC = () => {
         setErro("Usuário ou senha inválidos");
       }
     } catch (error: any) {
-      console.error("Erro ao fazer login:", error);
       setErro(
         error.response?.data?.erro ||
           error.response?.data?.message ||
-          "Erro ao tentar fazer login",
+          "Erro ao tentar fazer login"
       );
     } finally {
       setCarregando(false);
@@ -46,21 +44,21 @@ export const Login: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-kigi-darkBlue to-kigi-mediumBlue">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-900 to-blue-700">
       <div className="w-full max-w-md space-y-8 p-8">
-        <div className="bg-kigi-white backdrop-blur-sm px-8 py-12 shadow-lg rounded-2xl">
+        <div className="bg-blue-800 bg-opacity-50 backdrop-blur-sm px-8 py-12 shadow-xl rounded-2xl border border-blue-600">
           <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold text-kigi-primary mb-2">
+            <h1 className="text-4xl font-bold text-blue-200 mb-2">
               KIGI Finanças
             </h1>
-            <p className="text-gray-600">Gestão financeira inteligente</p>
+            <p className="text-blue-300">Gestão financeira inteligente</p>
           </div>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-4">
               <div>
                 <label
                   htmlFor="login"
-                  className="block text-sm font-medium text-gray-700"
+                  className="block text-sm font-medium text-blue-200"
                 >
                   Login
                 </label>
@@ -70,14 +68,14 @@ export const Login: React.FC = () => {
                   required
                   value={login}
                   onChange={(e) => setLogin(e.target.value)}
-                  className="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-3 shadow-sm focus:border-kigi-accent focus:ring-1 focus:ring-kigi-accent transition-colors"
+                  className="mt-1 block w-full rounded-lg bg-blue-900 border border-blue-600 px-4 py-3 text-blue-100 placeholder-blue-400 focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-colors"
                   placeholder="Digite seu login"
                 />
               </div>
               <div>
                 <label
                   htmlFor="senha"
-                  className="block text-sm font-medium text-gray-700"
+                  className="block text-sm font-medium text-blue-200"
                 >
                   Senha
                 </label>
@@ -87,18 +85,18 @@ export const Login: React.FC = () => {
                   required
                   value={senha}
                   onChange={(e) => setSenha(e.target.value)}
-                  className="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-3 shadow-sm focus:border-kigi-accent focus:ring-1 focus:ring-kigi-accent transition-colors"
+                  className="mt-1 block w-full rounded-lg bg-blue-900 border border-blue-600 px-4 py-3 text-blue-100 placeholder-blue-400 focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-colors"
                   placeholder="Digite sua senha"
                 />
               </div>
             </div>
 
             {erro && (
-              <div className="rounded-lg bg-red-50 p-4">
+              <div className="rounded-lg bg-red-900 bg-opacity-50 p-4">
                 <div className="flex">
                   <div className="flex-shrink-0">
                     <svg
-                      className="h-5 w-5 text-red-400"
+                      className="h-5 w-5 text-red-300"
                       viewBox="0 0 20 20"
                       fill="currentColor"
                     >
@@ -110,7 +108,7 @@ export const Login: React.FC = () => {
                     </svg>
                   </div>
                   <div className="ml-3">
-                    <p className="text-sm text-red-700">{erro}</p>
+                    <p className="text-sm text-red-300">{erro}</p>
                   </div>
                 </div>
               </div>
@@ -118,7 +116,7 @@ export const Login: React.FC = () => {
 
             <Button
               type="submit"
-              className="w-full bg-kigi-primary hover:bg-kigi-secondary text-white py-3 rounded-lg transition-colors"
+              className="w-full bg-blue-600 hover:bg-blue-500 text-blue-100 py-3 rounded-lg transition-colors"
             >
               Entrar
             </Button>
