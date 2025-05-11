@@ -51,26 +51,39 @@ const Produtos: React.FC = () => {
   };
 
   return (
-    <div className="p-4">
-      <div className="flex justify-between items-center mb-4">
-        <h1 className="text-2xl font-bold text-gray-900">Produtos</h1>
+    <div className="p-8 bg-gradient-to-br from-kigi-light to-white min-h-screen">
+      <div className="flex justify-between items-center mb-8">
+        <h1 className="text-3xl font-bold text-kigi-primary">Produtos</h1>
         {modo === "lista" ? (
-          <Button onClick={() => setModo("form")}>Novo Produto</Button>
+          <Button 
+            onClick={() => setModo("form")}
+            className="bg-gradient-to-r from-kigi-primary to-kigi-secondary text-white hover:shadow-lg transition-all duration-200"
+          >
+            <span className="material-icons mr-2">add</span>
+            Novo Produto
+          </Button>
         ) : (
-          <Button variant="outline" onClick={() => setModo("lista")}>Voltar</Button>
+          <Button 
+            variant="outline" 
+            onClick={() => setModo("lista")}
+            className="border-kigi-primary text-kigi-primary hover:bg-kigi-primary hover:text-white"
+          >
+            <span className="material-icons mr-2">arrow_back</span>
+            Voltar
+          </Button>
         )}
       </div>
 
       {modo === "lista" ? (
-        <div className="bg-white shadow-md rounded-lg overflow-hidden">
+        <div className="bg-white/80 backdrop-blur-sm shadow-lg rounded-2xl overflow-hidden border border-white">
           <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-50">
+            <thead className="bg-gradient-to-r from-kigi-primary to-kigi-secondary text-white">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nome</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">QR Code</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Classificação</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Unidade</th>
-                <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Ações</th>
+                <th className="px-6 py-4 text-left text-sm font-semibold tracking-wider">Nome</th>
+                <th className="px-6 py-4 text-left text-sm font-semibold tracking-wider">QR Code</th>
+                <th className="px-6 py-4 text-left text-sm font-semibold tracking-wider">Classificação</th>
+                <th className="px-6 py-4 text-left text-sm font-semibold tracking-wider">Unidade</th>
+                <th className="px-6 py-4 text-right text-sm font-semibold tracking-wider">Ações</th>
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
@@ -97,8 +110,8 @@ const Produtos: React.FC = () => {
           </table>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="bg-white shadow-md rounded-lg p-6">
-          <div className="space-y-4">
+        <form onSubmit={handleSubmit} className="bg-white/80 backdrop-blur-sm shadow-lg rounded-2xl p-8 border border-white">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm font-medium text-gray-700">Nome do Produto</label>
               <input

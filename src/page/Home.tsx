@@ -8,28 +8,30 @@ const Home: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div className="flex h-screen bg-gradient-to-br from-kigi-light to-white">
       {/* Menu Lateral */}
-      <div className="w-64 bg-white shadow-md">
-        <div className="p-4 border-b">
-          <h2 className="text-xl font-semibold text-gray-800">KIGI Finanças</h2>
+      <div className="w-64 bg-gradient-to-b from-kigi-primary to-kigi-secondary text-white">
+        <div className="p-6 border-b border-white/10">
+          <h2 className="text-2xl font-bold">KIGI Finanças</h2>
         </div>
         <nav className="p-4">
-          <ul className="space-y-2">
+          <ul className="space-y-3">
             <li>
               <button
                 onClick={() => navigate('/home')}
-                className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md"
+                className="w-full text-left px-4 py-3 text-white hover:bg-white/10 rounded-lg transition-all duration-200 flex items-center space-x-3"
               >
-                Dashboard
+                <span className="material-icons">dashboard</span>
+                <span>Dashboard</span>
               </button>
             </li>
             <li>
               <button
                 onClick={() => navigate('/produtos')}
-                className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md"
+                className="w-full text-left px-4 py-3 text-white hover:bg-white/10 rounded-lg transition-all duration-200 flex items-center space-x-3"
               >
-                Produtos
+                <span className="material-icons">inventory_2</span>
+                <span>Produtos</span>
               </button>
             </li>
           </ul>
@@ -38,9 +40,25 @@ const Home: React.FC = () => {
 
       {/* Conteúdo Principal */}
       <div className="flex-1 p-8">
-        <div className="bg-white rounded-lg shadow-md p-6">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">Bem-vindo!</h1>
-          <p className="text-gray-600">Olá, {usuarioLogado?.nome || 'Usuário'}!</p>
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-8 border border-white">
+          <h1 className="text-3xl font-bold text-kigi-primary mb-6">Bem-vindo!</h1>
+          <p className="text-xl text-kigi-secondary">
+            Olá, <span className="font-semibold">{usuarioLogado?.nome || 'Usuário'}</span>!
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+            <div className="bg-gradient-to-br from-kigi-primary to-kigi-secondary p-6 rounded-xl text-white">
+              <h3 className="text-lg font-semibold mb-2">Total de Produtos</h3>
+              <p className="text-3xl font-bold">128</p>
+            </div>
+            <div className="bg-gradient-to-br from-kigi-secondary to-kigi-accent p-6 rounded-xl text-white">
+              <h3 className="text-lg font-semibold mb-2">Vendas do Mês</h3>
+              <p className="text-3xl font-bold">R$ 25.480</p>
+            </div>
+            <div className="bg-gradient-to-br from-kigi-accent to-kigi-primary p-6 rounded-xl text-white">
+              <h3 className="text-lg font-semibold mb-2">Novos Clientes</h3>
+              <p className="text-3xl font-bold">34</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
