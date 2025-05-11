@@ -44,21 +44,21 @@ export const Login: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-900 to-blue-700">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-400 to-blue-300">
       <div className="w-full max-w-md space-y-8 p-8">
-        <div className="bg-blue-800 bg-opacity-50 backdrop-blur-sm px-8 py-12 shadow-xl rounded-2xl border border-blue-600">
+        <div className="bg-blue-300 bg-opacity-50 backdrop-blur-sm px-8 py-12 shadow-xl rounded-2xl border border-blue-200">
           <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold text-blue-200 mb-2">
+            <h1 className="text-4xl font-bold text-blue-800 mb-2">
               KIGI Finanças
             </h1>
-            <p className="text-blue-300">Gestão financeira inteligente</p>
+            <p className="text-blue-600">Gestão financeira inteligente</p>
           </div>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-4">
               <div>
                 <label
                   htmlFor="login"
-                  className="block text-sm font-medium text-blue-200"
+                  className="block text-sm font-medium text-blue-700"
                 >
                   Login
                 </label>
@@ -68,14 +68,14 @@ export const Login: React.FC = () => {
                   required
                   value={login}
                   onChange={(e) => setLogin(e.target.value)}
-                  className="mt-1 block w-full rounded-lg bg-blue-900 border border-blue-600 px-4 py-3 text-blue-100 placeholder-blue-400 focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-colors"
+                  className="mt-1 block w-full rounded-lg bg-blue-100 border border-blue-300 px-4 py-3 text-blue-900 placeholder-blue-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
                   placeholder="Digite seu login"
                 />
               </div>
               <div>
                 <label
                   htmlFor="senha"
-                  className="block text-sm font-medium text-blue-200"
+                  className="block text-sm font-medium text-blue-700"
                 >
                   Senha
                 </label>
@@ -85,18 +85,18 @@ export const Login: React.FC = () => {
                   required
                   value={senha}
                   onChange={(e) => setSenha(e.target.value)}
-                  className="mt-1 block w-full rounded-lg bg-blue-900 border border-blue-600 px-4 py-3 text-blue-100 placeholder-blue-400 focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-colors"
+                  className="mt-1 block w-full rounded-lg bg-blue-100 border border-blue-300 px-4 py-3 text-blue-900 placeholder-blue-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
                   placeholder="Digite sua senha"
                 />
               </div>
             </div>
 
             {erro && (
-              <div className="rounded-lg bg-red-900 bg-opacity-50 p-4">
+              <div className="rounded-lg bg-red-100 p-4">
                 <div className="flex">
                   <div className="flex-shrink-0">
                     <svg
-                      className="h-5 w-5 text-red-300"
+                      className="h-5 w-5 text-red-400"
                       viewBox="0 0 20 20"
                       fill="currentColor"
                     >
@@ -108,7 +108,7 @@ export const Login: React.FC = () => {
                     </svg>
                   </div>
                   <div className="ml-3">
-                    <p className="text-sm text-red-300">{erro}</p>
+                    <p className="text-sm text-red-500">{erro}</p>
                   </div>
                 </div>
               </div>
@@ -116,7 +116,7 @@ export const Login: React.FC = () => {
 
             <Button
               type="submit"
-              className="w-full bg-blue-600 hover:bg-blue-500 text-blue-100 py-3 rounded-lg transition-colors"
+              className="w-full bg-blue-500 hover:bg-blue-400 text-white py-3 rounded-lg transition-colors"
             >
               Entrar
             </Button>
