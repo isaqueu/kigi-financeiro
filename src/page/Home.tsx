@@ -4,40 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import { useContextoGeral } from '../componentes/contexto/ContextoGeral';
 import { Button } from '../componentes/ui/button';
 
+import Header from '../componentes/Header';
+
 const Home: React.FC = () => {
   const { usuarioLogado } = useContextoGeral();
-  const navigate = useNavigate();
 
   return (
-    <div className="flex h-screen bg-blue-200">
-      {/* Menu Lateral */}
-      <div className="w-64 bg-blue-300 border-r border-blue-200">
-        <div className="p-4 border-b border-blue-200">
-          <h2 className="text-xl font-semibold text-blue-800">KIGI Finanças</h2>
-        </div>
-        <nav className="p-4">
-          <ul className="space-y-2">
-            <li>
-              <button
-                onClick={() => navigate('/home')}
-                className="w-full text-left px-4 py-2 text-blue-700 hover:bg-blue-200 rounded-md transition-all duration-200 flex items-center space-x-3"
-              >
-                <span className="material-icons text-blue-600">dashboard</span>
-                <span>Dashboard</span>
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => navigate('/produtos')}
-                className="w-full text-left px-4 py-2 text-blue-700 hover:bg-blue-200 rounded-md transition-all duration-200 flex items-center space-x-3"
-              >
-                <span className="material-icons text-blue-600">inventory_2</span>
-                <span>Produtos</span>
-              </button>
-            </li>
-          </ul>
-        </nav>
-      </div>
+    <div className="min-h-screen bg-blue-200">
+      <Header />
 
       {/* Conteúdo Principal */}
       <div className="flex-1 p-8 bg-blue-100">

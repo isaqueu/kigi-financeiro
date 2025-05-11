@@ -3,6 +3,8 @@ import { servicoProduto } from "../service/ProdutoService";
 import { Produto } from "../types";
 import { Button } from "../componentes/ui/button";
 
+import Header from '../componentes/Header';
+
 const Produtos: React.FC = () => {
   const [produtos, setProdutos] = useState<Produto[]>([]);
   const [produtoAtual, setProdutoAtual] = useState<Produto>({
@@ -50,7 +52,9 @@ const Produtos: React.FC = () => {
   };
 
   return (
-    <div className="p-8 bg-blue-100 min-h-screen">
+    <div className="min-h-screen bg-blue-100">
+      <Header />
+      <div className="p-8">
       <div className="bg-blue-200 rounded-lg shadow-lg">
         <div className="p-6 border-b border-blue-300 flex justify-between items-center">
           <h1 className="text-xl font-semibold text-blue-800">Produtos</h1>
