@@ -65,7 +65,7 @@ const Produtos: React.FC = () => {
           ) : (
             <Button
               onClick={() => setModo("lista")}
-              className="text-blue-700 hover:text-blue-600 px-4 py-2 rounded-md flex items-center space-x-2"
+              className="bg-blue-500 text-white hover:bg-blue-400 px-4 py-2 rounded-md flex items-center space-x-2"
             >
               <span className="material-icons text-sm">arrow_back</span>
               <span>Voltar</span>
