@@ -1,8 +1,7 @@
-
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useContextoGeral } from './contexto/ContextoGeral';
-import { Button } from './ui/button';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useContextoGeral } from "./contexto/ContextoGeral";
+import { Button } from "./ui/button";
 
 const Header: React.FC = () => {
   const { usuarioLogado } = useContextoGeral();
@@ -15,14 +14,14 @@ const Header: React.FC = () => {
         <div className="flex items-center space-x-4">
           <span className="text-blue-700">{usuarioLogado?.nome}</span>
           <Button
-            onClick={() => navigate('/home')}
-            className="text-blue-700 hover:bg-blue-200 px-3 py-1 rounded-md transition-all duration-200"
+            onClick={() => navigate("/home")}
+            className="bg-kigi-mediumBlue text-white hover:bg-kigi-hoverBlue px-3 py-1 rounded-md transition-all duration-200"
           >
             Dashboard
           </Button>
           <Button
-            onClick={() => navigate('/produtos')}
-            className="text-blue-700 hover:bg-blue-200 px-3 py-1 rounded-md transition-all duration-200"
+            onClick={() => navigate("/produtos")}
+            className="bg-kigi-mediumBlue text-white hover:bg-kigi-hoverBlue px-3 py-1 rounded-md transition-all duration-200"
           >
             Produtos
           </Button>
